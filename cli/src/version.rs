@@ -49,11 +49,11 @@ impl VersionInfo {
             version: VERSION,
             features: env!("VERGEN_CARGO_FEATURES").split(',').collect::<Vec<_>>(),
 
-            program_semver: env!("VERGEN_GIT_DESCRIBE"),
-            program_commit_hash: env!("VERGEN_GIT_SHA"),
+            program_semver: option_env!("VERGEN_GIT_DESCRIBE").unwrap_or("N/A"),
+            program_commit_hash: option_env!("VERGEN_GIT_SHA").unwrap_or("N/A"),
             program_target_triple: env!("VERGEN_CARGO_TARGET_TRIPLE"),
             program_opt_level: env!("VERGEN_CARGO_OPT_LEVEL"),
-            program_build_timestamp: env!("VERGEN_BUILD_TIMESTAMP"),
+            program_build_timestamp: option_env!("VERGEN_BUILD_TIMESTAMP").unwrap_or("N/A"),
 
             rustc_semver: env!("VERGEN_RUSTC_SEMVER"),
             rustc_commit_hash: env!("VERGEN_RUSTC_COMMIT_HASH"),

@@ -11,7 +11,7 @@ repository = "https://github.com/Myriad-Dreamin/shiroa"
 
 [workspace]
 resolver = "2"
-members = ["cli", "tools/build-from-source"]
+members = ["cli"]
 
 [profile.release]
 codegen-units = 1 # Reduce number of codegen units to increase optimizations
